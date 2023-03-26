@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 function Navigation() {
   return (
-    <div class="container-fluid">
+    <div className="container-fluid">
 <nav id="navBar" className="navbar navbar-expand-lg bg-body-tertiary ">  
 
         <Link id="home" className="navbar-brand" to="/">Home</Link>
@@ -27,7 +27,7 @@ function Navigation() {
               <NavLink className="nav-link" to="/create">Create a Todo</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/index">View Your Todos</NavLink>
+              <NavLink className="nav-link" to="/todos">View Your Todos</NavLink>
             </li>
           </ul>
         

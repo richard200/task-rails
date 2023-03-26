@@ -1,7 +1,7 @@
 
 import './App.css'
 import Login from './components/Login';
-// import Display from './components/Display';
+import Display from './components/Display';
 // import Home from './components/Home';
 // import Update from './components/Update';
 
@@ -27,7 +27,7 @@ function App() {
       <Route exact path="/register" component={SignUp} />
       <Route path="/login" component={Login}  />
       <Route path="/create" component={AddTodo}  />
-        {/* <Route path="/memes" component={Display} onLogin={handleLogin} /> */}
+      <Route path="/todos" component={Display}  />
       
         
       </Switch>

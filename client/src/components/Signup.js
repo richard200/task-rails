@@ -13,8 +13,10 @@ let SignUp = () => {
   
     function handleLogin(e) {
       e.preventDefault();
-      fetch("http://localhost:3000/register", {
+      fetch("http://localhost:3000/users/register", {
         method: "POST",
+        crossorigin: true,
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },

@@ -44,15 +44,18 @@ const Login = ({onLogin}) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3000/users/login", {
       method: "POST",
+      crossorigin: true,
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
        email, password,
       })
-    }).then((response) => response.json())
+    })
+    .then((response) => response.json())
     .then((data) => {
       // Handle successful login
       
@@ -70,7 +73,7 @@ const Login = ({onLogin}) => {
   return (
 <div className="main">
 <Navigation/>
-  {/* {loggedIn && <Redirect to='/todos' />} */}
+  {loggedIn && <Redirect to='/create' />}
     <form id="form-login" onSubmit={handleLogin}>
       <div className="form-group">
         <i className="input-icon uil uil-at"></i>

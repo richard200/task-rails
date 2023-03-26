@@ -9,8 +9,10 @@ function AddTodo() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch("http://localhost:3000/create", {
+    fetch("http://localhost:3000/todos/create", {
     method: "POST",
+    crossorigin: true,
+    mode: "no-cors",
       headers: {
         "Content-Type": "application/json"
       },
