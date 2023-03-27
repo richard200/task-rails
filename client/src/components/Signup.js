@@ -13,7 +13,7 @@ let SignUp = () => {
   
     function handleLogin(e) {
       e.preventDefault();
-      fetch("http://localhost:3000/users/register", {
+      fetch("https://task-rails.onrender.com/users/register", {
         method: "POST",
         crossorigin: true,
         mode: "no-cors",

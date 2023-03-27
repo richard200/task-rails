@@ -9,7 +9,7 @@ function AddTodo() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch("http://localhost:3000/todos/create", {
+    fetch("https://task-rails.onrender.com/todos/create", {
     method: "POST",
     crossorigin: true,
     mode: "no-cors",

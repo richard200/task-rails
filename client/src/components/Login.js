@@ -44,7 +44,7 @@ const Login = ({onLogin}) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3000/users/login", {
+    fetch("https://task-rails.onrender.com/users/login", {
       method: "POST",
       crossorigin: true,
       mode: "no-cors",
@@ -73,7 +73,7 @@ const Login = ({onLogin}) => {
   return (
 <div className="main">
 <Navigation/>
-  {loggedIn && <Redirect to='/create' />}
+  {loggedIn && <Redirect to='https://task-rails.onrender.com/todos/create' />}
     <form id="form-login" onSubmit={handleLogin}>
       <div className="form-group">
         <i className="input-icon uil uil-at"></i>

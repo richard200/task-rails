@@ -8,7 +8,7 @@ function Todos(todoo) {
   let [todo, setTodo] = useState([])
   let [query, setQuery] = useState("")
   useEffect(() => {
-    fetch("http://localhost:3000/todos", {
+    fetch("https://task-rails.onrender.com/todos", {
         method: "GET",
         crossorigin: true,
         mode: "no-cors",
@@ -22,7 +22,7 @@ function Todos(todoo) {
 
   function handleDeleteClick(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/todos/delete/${todoo.id}`, {
+    fetch(`https://task-rails.onrender.com/todos/delete/${todoo.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
