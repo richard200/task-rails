@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-    before_action :session_expired?
+    before_action :verify_auth
     rescue_from ArgumentError, with: :invalid_priority
 
     def create 

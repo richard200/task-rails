@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   post '/todos/create', to: 'todos#create'
   put '/todos/update/:id', to: 'todos#update'
   delete '/todos/delete/:id', to: 'todos#destroy'
+
+  #verify auth
+  get '/verify', to: 'application#verify_auth'
 end

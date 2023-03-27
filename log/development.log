@@ -810,3 +810,107 @@ Processing by UsersController#login as */*
 Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 903)
 
 
+Started POST "/users/register" for 127.0.0.1 at 2023-03-27 11:24:34 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "username": "steph"
+  "email": "steph@gmail.com",
+  "password": "1234"
+ 
+}
+Processing by UsersController#register as */*
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 20163)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-03-27 11:24:49 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"steph", "email"=>"steph@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"steph", "email"=>"steph@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f4a20a2efb0>, params: {"username"=>"steph", "email"=>"steph@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"steph", "email"=>"steph@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "steph"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "steph@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "steph"], ["email", "steph@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-27 08:24:49.806814"], ["updated_at", "2023-03-27 08:24:49.806814"]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "steph"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "steph@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 200 OK in 258ms (Views: 0.2ms | ActiveRecord: 8.6ms | Allocations: 21241)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:35:55 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"rich@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f4a180ac918>, params: {"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"rich@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f4a180ac918>, params: {"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"rich@gmail.com"}} }[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'rich@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f4a180ac918>, params: {"email"=>"rich@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"rich@gmail.com"}} }[0m
+Completed 200 OK in 227ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 2960)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:40:10 +0300
+  
+SyntaxError (/home/user/Development/code/phase4/TaskRails/api/config/routes.rb:17: syntax error, unexpected local variable or method, expecting `end'
+  get '/verify' to: 'application/verify_auth'
+                ^~
+):
+  
+config/routes.rb:17: syntax error, unexpected local variable or method, expecting `end'
+config/routes.rb:17: syntax error, unexpected local variable or method, expecting `end'
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:40:33 +0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:17:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:43:34 +0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:17:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:44:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/verify"):
+  
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:46:57 +0300
+Processing by ApplicationController#verify_auth as */*
+  Parameters: {"email"=>"steph@gmail.com", "password"=>"[FILTERED]", "application"=>{"email"=>"steph@gmail.com", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 129)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:47:27 +0300
+Processing by ApplicationController#verify_auth as */*
+  Parameters: {"email"=>"steph@gmail.com", "password"=>"[FILTERED]", "application"=>{"email"=>"steph@gmail.com", "password"=>"[FILTERED]"}}
+Completed 200 OK in 2ms (Views: 0.3ms | Allocations: 209)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:52:25 +0300
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 153)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:52:48 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:71:in `user'
+Completed 200 OK in 71ms (Views: 0.3ms | ActiveRecord: 4.6ms | Allocations: 13428)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 12:03:05 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:71:in `user'
+Completed 200 OK in 54ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 8971)
+
+
