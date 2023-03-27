@@ -1,4 +1,4 @@
-# Pizza Restaurant
+# Task Rails
 Task-Rails is a basic app built with react that enables a user to register an account, login and create, read, update and delete todos.
 ## Prerequisites
 In order to use this repository you will need the following:

@@ -113,3 +113,7 @@ nav{
 .navbar {
   text-align: center;
 }
+
+.submit-button {
+  font-size: 30px;
+}

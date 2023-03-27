@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import AddTodo from "./AddTodo"
+import Navigation from "./Navigation";
 
 function Todos(todoo) {
     let [id, Setid] = useState("")
@@ -43,12 +44,12 @@ function Todos(todoo) {
 
   return (
     <div>
-     
+     <Navigation/>
       <TodoList todos={todo} />
 
       <button className="btn btn-danger" onClick={handleDeleteClick}>
             <span role="img" aria-label="delete">
-            Delete Meme:  🗑
+            Delete Todo:  🗑
             </span>
           </button>
     </div>
