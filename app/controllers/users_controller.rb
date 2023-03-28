@@ -34,6 +34,11 @@ class UsersController < ApplicationController
         app_response( message: "Logout was successful", status: :ok)
     end
 
+    def index 
+        user = User.all 
+        render json: user
+    end
+
     private
     def user_params
         params.permit(:username, :email, :password)

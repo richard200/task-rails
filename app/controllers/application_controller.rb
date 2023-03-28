@@ -36,8 +36,8 @@ class ApplicationController < ActionController::API
         end
     end
 
-    # verify authorization headers
-    def verify_auth
+       # verify authorization headers
+       def verify_auth
         auth_headers = request.headers['Authorization']
         if !auth_headers
             app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized.' }) 
@@ -46,6 +46,7 @@ class ApplicationController < ActionController::API
             save_user_id(token)
         end
     end
+ 
 
     # store user id in session
     def save_user(id)

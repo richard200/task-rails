@@ -1,8 +1,8 @@
 class Todo < ApplicationRecord
   belongs_to :user
 
-  enum :status, [:CREATED, :STARTED, :COMPLETED, :CANCELED]
-  enum :priority, [:LOW, :MEDIUM, :HIGH]
+  enum :status, [:CREATED, :STARTED, :COMPLETED, :CANCELED ]
+  enum :priority, [:LOW, :MEDIUM, :HIGH ]
 
   validates :title, {
     length: {minimum: 5, maximum: 20},

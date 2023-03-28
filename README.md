@@ -30,6 +30,9 @@ You can setup this repository by following this manual
 4. Open the application from your browser
     ```
    http://localhost:4000
+
+5. The link to the frontedn side of the application is
+    https://github.com/richard200/task-rails-frontend
    ```
 ## Application
 This application is a simple react app that allows users to:

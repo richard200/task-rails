@@ -22,11 +22,11 @@ class Calculator
     end
 
     def square
-        @n1 * @n2
+        @n1 * @n1
     end
 
     def cube
-        @n1 * @n1
+        @n1 * @n1 * @n1
     end
 
 end

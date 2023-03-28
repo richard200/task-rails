@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
     before_action :verify_auth
-    rescue_from ArgumentError, with: :invalid_priority
+
 
     def create 
      todo = user.todos.create(todo_params)
@@ -9,10 +9,6 @@ class TodosController < ApplicationController
      else 
         app_response(status: :unprocessable_entity, data: todo.errors, message: 'failed')
      end
-    end
-
-    def invalid_priority
-        app_response(message: 'failed', data: {info: 'invalid priority'}, status: :unprocessable_entity)
     end
 
     def update
@@ -25,17 +21,18 @@ class TodosController < ApplicationController
     end
 
     def destroy 
-        todo = user.todos.find(params[:id].destroy)
+       user.todos.find(params[:id]).destroy
         app_response(message: 'success', data: {info: 'todo deleted successfully'}, status: 204)
     end
 
     def index
         todos = user.todos.all 
-        app_response(nessage: 'success', data: todos)
+        app_response(message: 'success', data: todos)
     end
 
 
     private 
+    
     def todo_params
         params.permit(:title, :descrption, :status, :priority)
     end

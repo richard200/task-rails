@@ -914,3 +914,318 @@ Processing by TodosController#index as */*
 Completed 200 OK in 54ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 8971)
 
 
+Started POST "/users/register" for 127.0.0.1 at 2023-03-28 08:44:39 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"steph", "email"=>"steph@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"steph", "email"=>"steph@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x000055871c2ba5b8>, params: {"username"=>"steph", "email"=>"steph@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"steph", "email"=>"steph@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "steph"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "steph@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "steph"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "steph@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 422 Unprocessable Entity in 251ms (Views: 4.0ms | ActiveRecord: 2.0ms | Allocations: 42078)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-28 08:45:04 +0300
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 3ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 813)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started GET "/todos" for 127.0.0.1 at 2023-03-28 08:45:32 +0300
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 725)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started POST "/users/register" for 127.0.0.1 at 2023-03-28 08:45:50 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"richie", "email"=>"richie@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"richie", "email"=>"richie@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f00400090a0>, params: {"username"=>"richie", "email"=>"richie@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"richie", "email"=>"richie@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "richie"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "richie@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "richie"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "richie@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 422 Unprocessable Entity in 229ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 4260)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-28 08:46:21 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"richie@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"richie@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f0020008418>, params: {"email"=>"richie@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"richie@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f0020008418>, params: {"email"=>"richie@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"richie@gmail.com"}} }[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'richie@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 401 Unauthorized in 6ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1110)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-03-28 08:46:41 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"manu", "email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"manu", "email"=>"manu@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f003820ee48>, params: {"username"=>"manu", "email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"manu", "email"=>"manu@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "manu"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "manu@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "manu"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "manu@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 422 Unprocessable Entity in 220ms (Views: 1.1ms | ActiveRecord: 1.6ms | Allocations: 4323)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2023-03-28 08:46:48 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"manuel", "email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"manuel", "email"=>"manu@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f0030013a60>, params: {"username"=>"manuel", "email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"manuel", "email"=>"manu@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "manuel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "manu@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "manuel"], ["email", "manu@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-28 05:46:48.746967"], ["updated_at", "2023-03-28 05:46:48.746967"]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "manuel"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "manu@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 201 Created in 259ms (Views: 0.3ms | ActiveRecord: 5.3ms | Allocations: 5063)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-28 08:47:00 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"manu@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f0034ff2270>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f0034ff2270>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'manu@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f0034ff2270>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+Completed 201 Created in 215ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1448)
+
+
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 08:47:20 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Working on README", "descrption"=>"Update the README to be able to carefully explain what the app does and how you can set it up", "priority"=>"MEDIUM", "todo"=>{"title"=>"Working on README", "descrption"=>"Update the README to be able to carefully explain what the app does and how you can set it up", "priority"=>"MEDIUM"}}
+Completed 500 Internal Server Error in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 723)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started GET "/todos/view" for 127.0.0.1 at 2023-03-28 08:48:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/todos/view"):
+  
+Started GET "/todos" for 127.0.0.1 at 2023-03-28 08:48:11 +0300
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 724)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started POST "/users/login" for 127.0.0.1 at 2023-03-28 08:50:16 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"manu@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f003849ea50>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f003849ea50>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'manu@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f003849ea50>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+Completed 201 Created in 231ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1438)
+
+
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 08:51:33 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"add README", "descrption"=>"make sure you have a well detailed README", "priority"=>1, "todo"=>{"title"=>"add README", "descrption"=>"make sure you have a well detailed README", "priority"=>1}}
+Completed 500 Internal Server Error in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 724)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started DELETE "/users/logout" for 127.0.0.1 at 2023-03-28 08:55:17 +0300
+Processing by UsersController#logout as */*
+  Parameters: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"manu@gmail.com"}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 293)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2023-03-28 08:55:22 +0300
+Processing by UsersController#logout as */*
+  Parameters: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"manu@gmail.com"}}
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 312)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-28 08:55:34 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"manu@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f00447eb260>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f00447eb260>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'manu@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f00447eb260>, params: {"email"=>"manu@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"manu@gmail.com"}} }[0m
+Completed 201 Created in 255ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1437)
+
+
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 08:55:49 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"add README", "descrption"=>"make sure you have a well detailed README", "priority"=>1, "todo"=>{"title"=>"add README", "descrption"=>"make sure you have a well detailed README", "priority"=>1}}
+Completed 500 Internal Server Error in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 723)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started POST "/users/register" for 127.0.0.1 at 2023-03-28 09:12:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"susan", "email"=>"susan@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"susan", "email"=>"susan@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f5ae8b6ac98>, params: {"username"=>"susan", "email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"susan", "email"=>"susan@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "susan"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "susan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "susan"], ["email", "susan@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-28 06:12:22.007883"], ["updated_at", "2023-03-28 06:12:22.007883"]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "susan"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "susan@gmail.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 201 Created in 259ms (Views: 2.1ms | ActiveRecord: 6.2ms | Allocations: 41210)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-28 09:13:48 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:39:in `index'
+Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 1.4ms | Allocations: 4824)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-28 09:14:35 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"susan@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f5ae000cc00>, params: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"susan@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f5ae000cc00>, params: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"susan@gmail.com"}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'susan@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f5ae000cc00>, params: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"susan@gmail.com"}} }[0m
+Completed 201 Created in 209ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1722)
+
+
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 09:16:13 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>1, "todo"=>{"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>1}}
+Completed 500 Internal Server Error in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 759)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 09:17:17 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2, "todo"=>{"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2}}
+Completed 500 Internal Server Error in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 724)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 09:28:45 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2, "todo"=>{"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2}}
+Completed 500 Internal Server Error in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 745)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started GET "/users" for 127.0.0.1 at 2023-03-28 15:10:53 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:39:in `index'
+Completed 200 OK in 54ms (Views: 15.6ms | ActiveRecord: 1.5ms | Allocations: 38322)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-28 15:11:17 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"susan@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007efd04014660>, params: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"susan@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007efd04014660>, params: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"susan@gmail.com"}} }[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = NULL OR email = 'susan@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007efd04014660>, params: {"email"=>"susan@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"email"=>"susan@gmail.com"}} }[0m
+Completed 201 Created in 259ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1839)
+
+
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 15:12:20 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2, "todo"=>{"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2}}
+Completed 500 Internal Server Error in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 759)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started POST "/todos/create" for 127.0.0.1 at 2023-03-28 15:20:49 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2, "todo"=>{"title"=>"create a repo", "descrption"=>"make sure you create a repo and submit it on time", "priority"=>2}}
+Completed 500 Internal Server Error in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 747)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:89:in `standard_error'
